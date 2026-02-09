@@ -1,0 +1,60 @@
+# AP Database SQL Query Practice
+
+This project is a SQL class practice focused on querying data from the AP (Accounts Payable) sample database.
+
+## Project Objective
+Practice core SQL querying skills using real tables (`vendors`, `invoices`) and business-style filtering scenarios.
+
+## What I Learned
+
+Through this practice, I learned how to:
+
+- Set and use a default database with `USE ap`
+- Retrieve data using `SELECT` with all columns or selected columns
+- Filter records using `WHERE` with:
+  - equality (`=`)
+  - comparison (`>`)
+  - logical operators (`AND`, `OR`)
+  - list filtering (`IN`, `NOT IN`)
+  - date range filtering (`BETWEEN`, and explicit date boundaries)
+- Sort results using `ORDER BY` (including descending order)
+- Rank and paginate records using `LIMIT` and `OFFSET`
+- Combine tables using `JOIN ... ON ...`
+- Improve query readability using table aliases (e.g., `invoices i`, `vendors v`)
+
+## SQL Techniques Used
+
+### 1) Basic Selection
+- `SELECT * FROM invoices;`
+- `SELECT vendor_id, vendor_name, vendor_state FROM vendors;`
+
+### 2) Conditional Filtering
+- State and city filters (`CA`, `WI`, `Los Angeles`)
+- Multi-condition logic with `AND` / `OR`
+- List filters with `IN` and exclusion using `NOT IN`
+- Amount filter: invoices with `invoice_total > 100`
+
+### 3) Date Filtering
+- Filtering June 2018 invoices with:
+  - `BETWEEN '2018-06-01' AND '2018-06-30'`
+  - boundary comparisons (`>=`, `<=`)
+  - exclusive range (`>`, `<`)
+
+### 4) Sorting and Top-N Queries
+- Highest invoice totals with `ORDER BY invoice_total DESC`
+- Top 5 rows with `LIMIT 5`
+- Pagination style query with `LIMIT ... OFFSET ...`
+
+### 5) Join Queries
+- Joining `invoices` and `vendors` on `vendor_id`
+- Filtering joined results by specific vendor names
+- Using aliases for cleaner SQL syntax
+
+## File Included
+- `ap-database-query-practice.sql`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This exercise strengthened my ability to write practical SQL queries for business analysis tasks, especially for filtering, ranking, and combining transactional and master data.
