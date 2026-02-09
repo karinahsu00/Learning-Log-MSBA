@@ -1,1 +1,51 @@
+# Department & Employee JOIN Practice (SQL)
+
+This project contains SQL class practice for understanding and comparing different JOIN types using `employees` and `departments` tables in the `ex` database.
+
+## Project Objective
+Learn how different JOIN operations affect query results when combining employee and department data.
+
+## What I Learned
+
+Through this practice, I learned how to:
+
+- Use `INNER JOIN` to return only matched records from both tables
+- Use `LEFT JOIN` to keep all employees, including those without matching departments
+- Use `RIGHT JOIN` to keep all departments, including those without employees
+- Simulate a `FULL OUTER JOIN` in MySQL by combining `LEFT JOIN` and `RIGHT JOIN` with `UNION`
+- Use table aliases (`e`, `d`) to write cleaner and more readable SQL
+
+## SQL Techniques Used
+
+### 1) Set Database Context
+- `USE ex;`
+
+### 2) INNER JOIN
+Returns only rows where `employees.department_number = departments.department_number`.
+
+### 3) LEFT JOIN
+Returns all rows from `employees` plus matching rows from `departments`.  
+If no matching department exists, department columns return `NULL`.
+
+### 4) RIGHT JOIN
+Returns all rows from `departments` plus matching rows from `employees`.  
+If no employees are assigned, employee columns return `NULL`.
+
+### 5) FULL OUTER JOIN (MySQL workaround)
+Because MySQL does not natively support `FULL OUTER JOIN`, this script uses:
+
+- `LEFT JOIN`
+- `UNION`
+- `RIGHT JOIN`
+
+to return all matched and unmatched rows from both tables.
+
+## File Included
+- `join-practice.sql`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This exercise improved my understanding of relational joins and helped me compare how each join type supports different business reporting needs (employee-centered view vs. department-centered view).
 
