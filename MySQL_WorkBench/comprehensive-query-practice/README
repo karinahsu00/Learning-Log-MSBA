@@ -1,0 +1,71 @@
+# SQL Comprehensive Query Practice
+
+This project is a comprehensive SQL class practice script covering core querying techniques across multiple databases: `ap`, `ex`, and `university`.
+
+## Project Objective
+Build a strong SQL foundation by practicing real query scenarios including filtering, sorting, joins, pattern matching, regular expressions, and date operations.
+
+## Databases Used
+- `ap` (Accounts Payable): `vendors`, `invoices`
+- `ex` (HR-style examples): `employees`, `departments`
+- `university`: `students`
+
+## What I Learned
+
+Through this practice, I strengthened my ability to:
+
+- Switch database contexts using `USE ...`
+- Retrieve records with `SELECT` (all columns and selected columns)
+- Apply conditional filters using:
+  - `WHERE`
+  - `AND`, `OR`
+  - `IN`, `NOT IN`
+- Sort output using `ORDER BY` (single and multi-column sorting)
+- Build top-N and pagination-style queries with `LIMIT` and `OFFSET`
+- Join related tables using:
+  - `INNER JOIN`
+  - `LEFT JOIN`
+  - `RIGHT JOIN`
+  - Simulated `FULL OUTER JOIN` via `UNION`
+  - Comparison of `UNION` vs `UNION ALL`
+- Perform text pattern matching using:
+  - `LIKE` wildcards (`%`)
+  - `REGEXP` anchors and character sets (`^`, `$`, `[ ]`)
+- Filter by date using:
+  - Date ranges (`BETWEEN`, `<`, `>`)
+  - Date functions (`YEAR()`, `MONTH()`, `DAY()`)
+
+## SQL Techniques Demonstrated
+
+### 1) Filtering & Projection
+- State and city-based vendor filters
+- Multi-condition logic (`AND`/`OR`)
+- List-based filtering (`IN` / `NOT IN`)
+
+### 2) Sorting & Ranking
+- Descending ranking by invoice amount
+- Multi-key sorting by state and vendor ID
+- Top records and offset pagination
+
+### 3) Join Operations
+- Invoice-to-vendor joins in `ap`
+- Employee-to-department joins in `ex`
+- Full coverage joins using `LEFT JOIN + RIGHT JOIN + UNION`
+
+### 4) String Search
+- Prefix/suffix/contains matching with `LIKE`
+- Advanced name pattern matching with `REGEXP`
+
+### 5) Date Analysis
+- Month-specific invoice filtering
+- Exact day filtering
+- Inclusive and exclusive date range logic
+
+## File Included
+- `sql-foundations-and-joins-practice.sql`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This script demonstrates practical SQL fluency for business analytics workflows: extracting, filtering, combining, and validating structured data across different schemas.
