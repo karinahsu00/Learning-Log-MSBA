@@ -1,0 +1,76 @@
+# SQL Database Design Homework 1
+
+This repository contains my SQL database design work for two relational database scenarios:
+
+1. Student Courses Database
+2. Movie Rental Database
+
+Both projects were designed with clear entity relationships, primary/foreign key constraints, and normalized table structures.
+
+---
+
+## Project 1: Student Courses Database
+
+Objective
+Design a relational database to manage students, courses, instructors, classrooms, and course registrations.
+
+Entities Included
+- Student
+- Course
+- Instructor
+- Classroom
+- Registration (junction table between Student and Course)
+
+Key Design Concepts Used
+- Primary Keys for unique entity identification  
+- Foreign Keys to enforce referential integrity  
+- Many-to-Many Relationship resolved using a bridge table (Registration)  
+- One-to-Many Relationships:
+  - Instructor → Course
+  - Classroom → Course
+- Basic normalization to reduce redundancy and improve data consistency
+
+Files
+- `msba_sql_hw1_student_courses.sql`: SQL schema script
+- `msba_sql_hw1_student_courses_erd.png`: ER diagram
+- `msba_sql_hw1_student_courses_model.mwb`: MySQL Workbench model
+- `msba_sql_hw1_student_courses_report.docx`: assignment write-up
+
+---
+
+## Project 2: Movie Rental Database
+
+Objective
+Design a database for a movie rental business to track disks, categories, sellers, customers, and rental transactions.
+
+Entities Included
+- Disk
+- Category
+- Seller
+- Customer
+- Rental
+
+Key Design Concepts Used
+- **Primary/Foreign key mapping** across core transaction tables  
+- **Transaction table design** in `Rental` with checkout/return date attributes  
+- **Referential integrity** between inventory and customer rental activity  
+- Clear relationship modeling for inventory ownership and rental history
+
+Files
+- `msba_sql_hw1_movie_rental_schema.sql`
+- `msba_sql_hw1_movie_rental_erd.png`
+
+---
+
+Tools & Technologies
+- MySQL Workbench (ER modeling and schema design)
+- MySQL SQL (DDL scripts and relational constraints)
+
+---
+
+Learning Outcomes
+Through this homework, I practiced:
+- Translating business requirements into relational schemas
+- Building ER diagrams and mapping relationships correctly
+- Implementing PK/FK constraints in SQL
+- Designing structured, readable database project documentation
