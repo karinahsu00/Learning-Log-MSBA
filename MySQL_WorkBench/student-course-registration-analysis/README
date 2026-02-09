@@ -31,10 +31,10 @@ Key Design Concepts Used
 - Basic normalization to reduce redundancy and improve data consistency
 
 Files
-- `msba_sql_hw1_student_courses.sql`: SQL schema script
-- `msba_sql_hw1_student_courses_erd.png`: ER diagram
-- `msba_sql_hw1_student_courses_model.mwb`: MySQL Workbench model
-- `msba_sql_hw1_student_courses_report.docx`: assignment write-up
+- `Student Courses.sql`: SQL schema script
+- `Diagram_Student Courses.png`: ER diagram
+- `Student Courses.mwb`: MySQL Workbench model
+- `HW1_Karina_Hsu.docx`: assignment write-up
 
 ---
 
@@ -57,8 +57,8 @@ Key Design Concepts Used
 - Clear relationship modeling for inventory ownership and rental history
 
 Files
-- `msba_sql_hw1_movie_rental_schema.sql`
-- `msba_sql_hw1_movie_rental_erd.png`
+- `Diagram_AI Movie Rental Database.png`: ER diagram
+- `HW1_Karina_Hsu.docx`: assignment write-up
 
 ---
 
