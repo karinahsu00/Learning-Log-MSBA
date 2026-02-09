@@ -1,0 +1,66 @@
+# SQL HAVING and Subquery Practice
+
+This project focuses on intermediate SQL techniques using the `ap` database, especially group-level filtering and subqueries.
+
+## Project Objective
+Practice how to analyze vendor and invoice data using:
+
+- `GROUP BY`
+- `HAVING`
+- subqueries in `WHERE` and `SELECT` contexts
+- list filtering with `IN`
+- row-level vs group-level filtering logic
+
+## Database Used
+- `ap`
+  - `invoices`
+  - `vendors`
+
+## What I Learned
+
+Through this practice, I learned how to:
+
+- Use `HAVING` to filter **groups** after aggregation
+- Compare `WHERE` vs `HAVING` and choose the right one
+- Build aggregate summaries by vendor and by state
+- Apply threshold filters to grouped results (e.g., counts > 30)
+- Write subqueries to:
+  - compare invoice values against the global average
+  - generate filtered vendor ID lists
+- Use `IN (subquery)` to connect conditions across related tables
+- Build derived tables (subquery in `FROM`) and query from them
+
+## SQL Techniques Demonstrated
+
+### 1) GROUP BY + HAVING
+- Invoice count and total invoice value by vendor
+- Vendor count by state
+- Group filtering with:
+  - `HAVING COUNT(vendor_id) > 30`
+  - `HAVING vendor_state IN (...)`
+
+### 2) WHERE vs HAVING
+- `WHERE` for row-level filtering before grouping
+- `HAVING` for aggregate/group-level filtering after grouping
+- Example included for monthly invoice filtering (`May 2018`) plus aggregate threshold
+
+### 3) Subqueries
+- Scalar subquery:
+  - Compare each invoice total to overall average invoice total
+- List subquery:
+  - Filter invoices by vendor IDs from selected states (`CA`, `WI`)
+- Derived table subquery:
+  - Build grouped state counts first, then select from temporary result set
+
+### 4) IN and NULL Awareness
+- `IN` used with explicit lists and subquery results
+- `IS NULL` concept introduced for missing value checks in real datasets
+
+## File Included
+- `sql-having-and-subquery-practice.sql`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This exercise strengthened my intermediate SQL skills for analytics reporting, especially in separating row filters from group filters and using subqueries to answer multi-step business questions.
