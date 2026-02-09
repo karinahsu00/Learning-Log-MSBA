@@ -1,0 +1,51 @@
+# GBA468 Assignment 1 — Bid Data Analysis
+
+This repository contains my submission for GBA468 / GBA468P Assignment 1, focused on analyzing bid-related data and documenting the workflow in notebook and report formats.
+
+## Project Objective
+The goal of this assignment is to practice a complete analytics workflow:
+- load and inspect raw bid data,
+- clean and prepare data for analysis,
+- perform exploratory analysis,
+- generate insights and interpretations,
+- present findings in reproducible and shareable formats.
+
+## Files in This Repository
+
+### Data
+- `data/gba468_assignment1_biddata.csv`  
+  Dataset used for Assignment 1 analysis.
+
+### Notebook
+- `notebooks/gba468_assignment1_karina_notebook.ipynb`  
+  Main analysis notebook containing code, outputs, and step-by-step workflow.
+
+### Reports
+- `reports/gba468_assignment1_karina_report.html`  
+  Rendered report version of the notebook for browser viewing.
+- `reports/gba468_assignment1_karina_report.pdf`  
+  PDF export of the final assignment/report.
+
+### Assignment Instructions
+- `docs/gba468p_hw1_instructions.pdf`  
+  Assignment prompt and requirements reference.
+
+## Methods & Techniques Used
+This assignment demonstrates core business analytics practices, including:
+- data loading and validation
+- data cleaning and preprocessing
+- exploratory data analysis (EDA)
+- summary statistics and pattern identification
+- analytical interpretation and business-oriented conclusions
+- reproducible reporting via Jupyter Notebook and exported deliverables (HTML/PDF)
+
+## Tools
+- Python (Jupyter Notebook)
+- Common analytics libraries (e.g., pandas / numpy / matplotlib, depending on notebook implementation)
+- HTML/PDF export for final reporting
+
+## Learning Outcomes
+Through this assignment, I strengthened my ability to:
+- structure a full analytics project from raw data to final report,
+- communicate results clearly in both technical and non-technical formats,
+- maintain reproducible analysis artifacts suitable for academic and professional review.
