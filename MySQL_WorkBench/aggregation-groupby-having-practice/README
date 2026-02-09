@@ -1,0 +1,73 @@
+# SQL Summary Queries, GROUP BY, HAVING, and ROLLUP Practice
+
+This project contains SQL practice focused on aggregate analysis in the `ap` database, using `invoices` and `vendors` tables.
+
+## Project Objective
+Learn how to summarize transactional data and generate grouped insights for business reporting.
+
+## Database Used
+- `ap`
+  - `invoices`
+  - `vendors`
+
+## What I Learned
+
+Through this practice, I learned how to:
+
+- Use aggregate functions:
+  - `COUNT()`
+  - `SUM()`
+  - `MIN()`
+  - `MAX()`
+  - `AVG()`
+  - `ROUND()`
+- Distinguish row counting vs value summation  
+  (e.g., `COUNT(*)` vs `SUM(invoice_total)`)
+- Calculate derived metrics such as:
+  - `balance_due = invoice_total - payment_total - credit_total`
+- Group data with `GROUP BY` to produce vendor-level summaries
+- Sort grouped results using `ORDER BY`
+- Filter grouped results using `HAVING`
+- Combine `WHERE` (pre-group filter) and `HAVING` (post-group filter)
+- Generate subtotal/grand-total style outputs with `WITH ROLLUP`
+- Build ranked summary outputs with `LIMIT` and `OFFSET`
+
+## SQL Techniques Demonstrated
+
+### 1) Core Aggregation
+- Total number of invoices
+- Number of distinct vendors in invoice records
+- Total invoice amount
+- Minimum, maximum, and average invoice amounts
+- Rounded average for cleaner reporting
+
+### 2) Balance Analysis
+- Identify invoices with unpaid balances
+- Separate fully paid vs outstanding invoices
+- Use computed columns for financial interpretation
+
+### 3) Grouped Vendor Analysis
+- Invoice count per vendor
+- Total invoice value per vendor
+- Vendor ranking by total invoice value
+- Joined summary (`invoices` + `vendors`) to include `vendor_name`
+
+### 4) Advanced Grouping
+- Group by `vendor_state` and `vendor_city`
+- Use `WITH ROLLUP` for subtotal/total style output
+
+### 5) Post-Aggregation Filtering
+- Apply `HAVING` for grouped thresholds  
+  (e.g., only vendors with total invoice value > 100)
+- Combine:
+  - `WHERE` for row-level filtering (e.g., May 2018 invoices)
+  - `HAVING` for group-level conditions
+
+## File Included
+- `sql-aggregation-groupby-having-practice.sql`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This exercise improved my ability to transform raw transaction records into decision-ready summaries, a key SQL skill for financial and business analytics.
