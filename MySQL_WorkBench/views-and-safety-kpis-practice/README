@@ -1,1 +1,75 @@
+# SQL Views and Safety KPI Warehouse Practice
 
+This project contains SQL practice focused on building reusable views and KPI-style reporting structures, using the `ap` and `safety` databases.
+
+## Project Objective
+Learn how to create analytical SQL layers (views and query-based tables) and use them to produce safety KPI insights for reporting.
+
+## Database Used
+- `ap`
+  - `invoices`
+- `safety`
+  - `location`
+  - `incident`
+  - `training`
+  - `audit`
+
+## What I Learned
+
+Through this practice, I learned how to:
+
+- Create reusable SQL views with:
+  - `CREATE VIEW`
+  - `CREATE OR REPLACE VIEW`
+- Build physical snapshot tables from query results using:
+  - `CREATE TABLE ... AS SELECT`
+- Understand differences between:
+  - Dynamic views (reflect latest source data)
+  - Stored query-output tables (snapshot behavior)
+- Use aggregate functions:
+  - `COUNT()`
+  - `MAX()`
+- Transform fields with:
+  - `IF()` (e.g., convert Yes/No to numeric flags)
+  - `STR_TO_DATE()` (convert string dates to date values)
+- Join multiple derived tables to form KPI-ready datasets
+- Calculate normalized risk metrics such as:
+  - `NMI / Headcount`
+  - `LTI / Headcount`
+- Rank locations with:
+  - `ORDER BY ... DESC`
+  - `LIMIT`
+
+## SQL Techniques Demonstrated
+
+### 1) View Creation and Reuse
+- Create a basic view from invoice columns
+- Query the view directly for simplified data access
+- Demonstrate how views support reusable logic
+
+### 2) Query Output Materialization
+- Use `CREATE TABLE ... AS SELECT` to store query output physically
+- Compare behavior of view vs stored table for reporting workflows
+
+### 3) KPI Data Modeling (Safety Analytics)
+- Build a consolidated KPI view from location and event sources
+- Aggregate incident data by location (`NMI`, `LTI`)
+- Pull latest activity dates (`Last_Training`, `Last_Audit`)
+
+### 4) Derived Tables and Aggregation
+- Use subqueries in `FROM` as derived tables
+- Aggregate with `GROUP BY`
+- Join aggregated outputs into one KPI dataset
+
+### 5) Ranking and Proportion Analysis
+- Compute incident proportions by headcount
+- Identify top-risk locations using descending ranking and top-N output
+
+## File Included
+- `views-and-safety-kpi-practice`
+
+## Tools
+- MySQL / MySQL Workbench
+
+## Outcome
+This exercise improved my ability to design SQL reporting layers and produce decision-ready KPI outputs, which is highly relevant for analytics engineering and business intelligence workflows.
