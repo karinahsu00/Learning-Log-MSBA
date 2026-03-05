@@ -1,1 +1,55 @@
+🤝 Northbridge Volunteer Matching & Communication Assistant
+A Hybrid Generative AI Application for Policy-Compliant Staffing & Operations
 
+📖 Overview
+The Volunteer Matching & Communication Assistant is a GenAI-powered tool designed for the Northbridge Community Alliance.
+It solves the operational bottleneck where staff manually navigate a patchwork of spreadsheets to match volunteers, a slow process prone to human error.
+By combining LLM natural language parsing with a deterministic Python rules engine, this system reduces manual coordination time from 30+ minutes to less than 5 seconds.
+
+The critical risk addressed by this application is preventing the accidental assignment of volunteers without mandatory,
+active certifications (e.g., Background Checks for youth programs), which exposes organizations to severe safety and compliance liabilities.
+
+Target Users:
+Primary: Program Managers & Volunteer Coordinators.
+Secondary: Operations Leadership (for capacity gap insights).
+
+🏗️ System Architecture (The "Hybrid Approach")
+To eliminate AI "Hallucination Risk" in decision-making, this system intentionally separates language reasoning from deterministic business logic.
+
+Stage 1: Structured Extraction (LLM) 
+    Input: Manager’s free-text request.
+    Action: The LLM acts purely as a parser, converting unstructured needs into a clean, structured JSON object (Role, Date, Time Block, Languages).
+
+Stage 2: Deterministic Gatekeeping (Python / Pandas) 
+    Action: Python handles the core logic. It centralizes roster data and filters it against hard constraints (Availability, Minimum Notice Days, exact certification expiration dates, and weekly hour limits).
+
+Stage 3: Automated Communication (LLM + PDF RAG) 
+    Action: The system uses pdfplumber to dynamically extract official templates directly from the Northbridge Manual. The LLM then uses this context to draft a highly professional, corporate-grade response (Template 1 or 3).
+
+🛡️ Guardrails & Responsible AI Design
+1. Zero-Hallucination Safety: Matching is strictly delegated to deterministic Python logic, not the LLM. The system physically blocks unsafe assignments by parsing exact YYYY-MM-DD strings to ensure mandatory certifications are present and unexpired.
+2. Fairness & Volunteer Burnout: Employs "Utilization Balancing." The code tracks active assignments and sorts eligible volunteers by current weekly hours (ascending order) to prioritize under-utilized candidates.
+3. Data Minimization (Privacy): The system only outputs operationally necessary fields (Name, Contact, Languages), automatically redacting sensitive internal notes and home addresses from the final output.
+4. Transparent Escalation: Instead of failing silently when no match is found, the system generates a "Template 3" internal memo stating the exact constraint (e.g., "Missing Certifications") and suggests actionable adjustments for staff leads.
+
+🚀 Live Demo Scenarios
+Scenario 1: Operational Efficiency (The Happy Path) 
+    Request: Urgent Spanish-speaking volunteer for Food Pantry.
+    Result: System validates Food Safety certification, matches a volunteer, and generates an outreach email using Template 1.
+
+Scenario 2: Compliance Gatekeeping (The Edge Case) 
+    Request: Urgent French-speaking volunteer for Youth Mentoring.
+    Result: System finds an available candidate but physically blocks the match because strictly required certifications (Background Check & Child Safety) are missing. It then drafts a highly professional, objective internal memo explaining the coverage gap to leadership (Template 3).
+
+Note: The system features an Interactive Conversation Loop with a "Human-in-the-Loop" guardrail. It explicitly pauses to ask Generate communication now? before drafting any emails, ensuring final human oversight.
+
+🛠️ Implementation Challenges
+Data Consistency: Roster inputs often contain inconsistent cases (e.g., "morning" vs "Morning").
+    Mitigation: Implemented defensive programming (e.g., .lower() string parsing) within the Python logic to ensure robust and accurate filtering.
+
+🗺️ Future Scalability & Roadmap
+1. Advanced Vector-Based RAG (ChromaDB/FAISS): Upgrade the current lightweight parser to a scalable vector database to cite exact page and paragraph numbers from the coordination manual.
+2. Omnichannel Routing (SMS Integration): Integrate SMS gateway APIs (e.g., Twilio) to automatically route outreach messages based on a volunteer’s preferred contact method.
+3. Capacity Analytics Dashboard: Aggregate data from "Template 3" refusal reasons to identify systemic gaps and guide targeted recruiting.
+4. Calendar API Integration: Connect directly to scheduling systems (e.g., Google Calendar/Outlook) for real-time conflict checks and one-click volunteer invites.
+5. A/B Testing: Optimize AI-generated outreach messaging to track which email variations yield the highest volunteer confirmation rates.
