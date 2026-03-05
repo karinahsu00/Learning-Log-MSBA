@@ -1,1 +1,55 @@
+Skyline Capital Partners: CRE Investment & Unit Mix Optimization
 
+📌 Project Overview
+This project presents a data-driven commercial real estate (CRE) investment strategy for Skyline Capital Partners.
+The analysis is divided into two primary phases:
+1. Market Selection: Evaluating historical property data across three target cities to identify the strongest risk-adjusted return for Class B multifamily assets.
+2. Simulation-Based Optimization: Building a 10-year pro forma cash flow simulation to determine the Net Present Value (NPV)-maximizing unit mix (Studios vs. 1-Bedrooms) for a new 85-unit development.
+
+🛠️ Tech Stack & Methodology
+Language/Libraries: Python (Pandas, NumPy, Matplotlib)
+Financial Metrics: IRR, NPV, NOI CAGR, Operating Expense Ratio (OER), Equity Multiple.
+Optimization: Algorithm-based scenario testing under strict physical (sq. ft.) and market capacity (demand tier) constraints.
+
+📊 Part 1: Market Selection Analysis
+Analyzed operational and financial historical data across three markets (Fairview, New Hope, Springfield).
+
+Recommendation: New Hope was selected as the target market.
+  Why New Hope? It offers the highest risk-adjusted returns, driven by structural operational efficiency and strong capital appreciation.
+  Key Metrics (Class B Averages):IRR: 7.30% (Highest), NOI CAGR: 6.00% (Highest), OER (Cost Efficiency): 50.26% (Lowest/Best), Equity Multiple: 1.08x (Highest)
+  Strategic Trade-off: While Fairview offers marginally better occupancy (9.72% vacancy vs. New Hope's 10.01%), New Hope's significant +2.54 pp IRR premium heavily outweighs the minor lease-up risk.
+
+🏗️ Part 2: Simulation-Based Unit Mix Optimization
+Developed a dynamic 10-year NPV model to design a new Class B apartment building in New Hope. The model optimizes the allocation of Studio and 1-Bedroom units under strict project constraints.
+
+The Constraints:
+  Total Units: Exactly 85 units (Scale requirement)
+  Floor Space Capped: $\le$ 80,000 sq. ft. (Studio = 800 sq. ft. | 1-Bedroom = 1,200 sq. ft.)
+  Market Absorption (Demand Caps): Applied variable rent-tier caps to prevent unrealistic lease-up assumptions (e.g., 1-BRs at $2,565/mo are capped at 48 units).
+
+The Winning Solution:
+The optimization algorithm identified 55 Studios and 30 1-Bedrooms as the most capital-efficient configuration.
+  Estimated Project NPV: $14.12 Million
+  Floor Space Utilization: 100% (80,000 sq ft fully utilized; constraint binding).
+  Demand Compliance: The 30-unit 1-BR allocation remains safely within the 48-unit market cap for its premium rent tier.
+
+🛡️ Part 3: Risk Awareness & Sensitivity Analysis
+To ensure investment-grade robustness, the optimal mix (55/30) was subjected to severe downside stress testing.
+
+1. Exit Cap Rate Sensitivity (Terminal Value Risk):Testing resilience against future interest rate hikes or a softening buyer market at the Year 10 exit:
+| Scenario | Exit Cap Rate | Estimated NPV | Impact |
+| :--- | :--- | :--- | :--- |
+| Base Case | 6.00% | $14.12M | - |
+| Stress (+50 bps) | 6.50% | $13.52M | -$0.60M |
+| Severe (+100 bps)| 7.00% | **$13.01M** | -$1.11M |
+
+Takeaway: Even under a severe +100 bps expansion, the project maintains a robust $13.01M NPV, proving returns are anchored by strong operational cash flow rather than optimistic exit valuations.
+
+2. Rent Growth vs. Cost Inflation (Downside Stress)
+Scenario: Rent growth drops to 3% while operating costs spike by 15% due to inflation.
+Result: The 55/30 mix maintains a strong positive NPV (> $11.4M).
+Affordability Buffer: Slower rent growth dynamically keeps the building in a more affordable rent tier for longer, bypassing strict market demand caps and sustaining high occupancy to offset lower margins.
+
+💡 Conclusion & Next Steps: The New Hope market paired with a 55 Studio / 30 1-BR unit mix presents a highly defensible, high-yield investment strategy. Moving forward to the execution phase, we recommend securing fixed-rate vendor contracts to hedge against OER expansion and establishing a 6-month lease-up cash reserve to mitigate initial vacancy risks.
+
+Created by Karina Hsu for strategic real estate portfolio analysis (2026).
